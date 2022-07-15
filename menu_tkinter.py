@@ -7,9 +7,7 @@ from functools import partial
 import tkinter as tk
 from tkinter import ttk
 
-import pandas as pd
 import winsound
-
 
 from settings import state_params, widgets_table
 from utilities.forms.f_export_db_to_xlsx import f_export_db_to_xlsx

@@ -1,12 +1,7 @@
 """[summary]
 """
-import sys
-from pathlib import Path
-
-from datetime import date
-from typing import Tuple
-
-global temp_cursor
+# import sys
+# from pathlib import Path
 
 
 def from_server_connect():
@@ -39,21 +34,6 @@ def from_server_connect():
     #                                passwd="MySQL_password#5"
     #                                )
     # return connection
-
-
-def get_inline_params(data_folder: str = r'.\IN_DATA') -> Tuple[Path, Path]:
-    if len(sys.argv[1:]) != 2:
-        sys.exit(
-            """
-            Потрібно 2 параметри - назви *.CSV файлів.
-            Перший - вироби, другий - деталізація розсилки. Наприклад:
-
-            > python post_log.py изделия_ноябрь.csv ДС_ноябрь_2021.csv
-            """
-        )
-    print(F"Отримано {len(sys.argv[1:])} параметрів, а саме: \n {sys.argv[1:]}")
-
-    return (Path(data_folder) / file_name for file_name in sys.argv[1:])
 
 
 credentials = {

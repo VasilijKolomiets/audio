@@ -4,14 +4,12 @@ Created on Wed Dec 22 09:18:38 2021
 
 @author: manager
 """
-import tkinter as tk
 from tkinter.filedialog import askdirectory
 from tkinter.messagebox import showinfo
 
 from pathlib import Path
 
-import winsound
-
+# import winsound
 # from settings import state_params
 
 
