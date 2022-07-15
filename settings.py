@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 
 from datetime import date
+from typing import Tuple
 
 global temp_cursor
 
@@ -32,15 +33,15 @@ def from_server_connect():
 
     """
     # Connecting from the server
-    connection = connector.connect(user="root",               # 'username',
-                                   host='localhost',
-                                   database="postman",         # 'database_name'
-                                   passwd="MySQL_password#5"
-                                   )
-    return connection
+    # connection = connector.connect(user="root",               # 'username',
+    #                                host='localhost',
+    #                                database="postman",         # 'database_name'
+    #                                passwd="MySQL_password#5"
+    #                                )
+    # return connection
 
 
-def get_inline_params(data_folder: str = r'.\IN_DATA') -> (Path, Path):
+def get_inline_params(data_folder: str = r'.\IN_DATA') -> Tuple[Path, Path]:
     if len(sys.argv[1:]) != 2:
         sys.exit(
             """
