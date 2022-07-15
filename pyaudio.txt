@@ -1,0 +1,111 @@
+python 3.8.+
+ pydub  speechrecognition  pyaudio
+ 
+ install ffmpeg from here:  https://ffmpeg.org/download.html
+ install flac online command  https://xiph.org/flac/download.html  ->  C:\Windows\System32 without EXE extension
+ https://stackoverflow.com/questions/70610033/flac-conversion-utility-not-available-consider-installing-the-flac-command-lin/70613152
+ ---
+ interesting online comands http://audiotools.sourceforge.net/index.html
+ https://pythonbasics.org/convert-mp3-to-wav/  - examples
+
+text
+
+https://stackabuse.com/text-translation-with-google-translate-api-in-python/               (pip only)
+pip install deep-translator
+https://deep-translator.readthedocs.io/en/latest/
+
+
+
+https://medium.com/analytics-vidhya/how-to-translate-text-with-python-9d203139dcf5
+
+
+conda install -c conda-forge google-cloud-translate  
+оплачений сервіс.
+https://googleapis.dev/python/translation/latest/translate_v3/translation_service.html
+
+
+Ось приклад
+https://cloud.google.com/translate/docs/basic/translating-text#translate_translate_text-python
+
+def translate_text(target, text):
+    """Translates text into the target language.
+
+    Target must be an ISO 639-1 language code.
+    See https://g.co/cloud/translate/v2/translate-reference#supported_languages
+    """
+    import six
+    from google.cloud import translate_v2 as translate
+
+    translate_client = translate.Client()
+
+    if isinstance(text, six.binary_type):
+        text = text.decode("utf-8")
+
+    # Text can also be a sequence of strings, in which case this method
+    # will return a sequence of results for each text.
+    result = translate_client.translate(text, target_language=target)
+
+    print(u"Text: {}".format(result["input"]))
+    print(u"Translation: {}".format(result["translatedText"]))
+    print(u"Detected source language: {}".format(result["detectedSourceLanguage"]))
+
+---
+
+# Imports the Google Cloud Translation library
+from google.cloud import translate
+
+
+# Initialize Translation client
+def translate_text(text="YOUR_TEXT_TO_TRANSLATE", project_id="YOUR_PROJECT_ID"):
+    """Translating Text."""
+
+    client = translate.TranslationServiceClient()
+
+    location = "global"
+
+    parent = f"projects/{project_id}/locations/{location}"
+
+    # Translate text from English to French
+    # Detail on supported types can be found here:
+    # https://cloud.google.com/translate/docs/supported-formats
+    response = client.translate_text(
+        request={
+            "parent": parent,
+            "contents": [text],
+            "mime_type": "text/plain",  # mime types: text/plain, text/html
+            "source_language_code": "en-US",
+            "target_language_code": "fr",
+        }
+    )
+
+    # Display the translation for each input text provided
+    for translation in response.translations:
+        print("Translated text: {}".format(translation.translated_text))
+
+
+
+https://cppsecrets.com/users/11429798104105115104101107117115104119971049754494864103109971051084699111109/python-pocketsphinx-installation-on-windows.php
+pip install pipwin 
+pipwin install pyaudio
+pipwin install pocketsphinx
+
+
+conda install googletrans
+https://dev-gang.ru/article/perevod-teksta-s-pomosczu-google-translate-api-v-python-ahgm88wx1k/
+---------------------------------------------------------------------------
+googletrans pydub speechrecognition pyaudio openpyxl
+
+
+
+
+
+============================================================================
+conda install pydub speechrecognition pyaudio openpyxl pandas -c conda-forge
+
+pip install googletrans==4.0.0-rc1
+
+============================================================================
+
+from googletrans import Translator
+translator = Translator()
+result = translator.translate('Mitä sinä teet')
